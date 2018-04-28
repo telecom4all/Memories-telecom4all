@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.Memories">
+	<uses-sdk android:minSdkVersion="15" />
+	<application android:label="Memories.Android">
+
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDoER8npcjFlhBVygmd2Ec9Sc6PNSjSg5Y"/>
+
+  </application>
+
+ 
+  
+</manifest>

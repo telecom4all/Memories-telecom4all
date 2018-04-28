@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Memories.DetailPin">
+    <ContentPage.Content>
+        
+            <StackLayout Orientation="Vertical" Spacing="5" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                <!-- 1er Ligne Titre -->
+                <StackLayout Orientation="Horizontal" Spacing="2" HorizontalOptions="CenterAndExpand" Margin="10" Padding="2">
+                    <Label x:Name="label_IdXaml" HorizontalOptions="FillAndExpand" FontSize="Medium" Margin="5"></Label>
+                    <Image x:Name="icon_IdXaml" HorizontalOptions="CenterAndExpand" Margin="5" ></Image>
+                </StackLayout>
+
+                <StackLayout Spacing="5" HorizontalOptions="CenterAndExpand">
+                    <WebView x:Name="streetView" Source="" HorizontalOptions="CenterAndExpand"  HeightRequest="400"  />
+                </StackLayout>
+                
+                <!-- 2eme Ligne Titre -->
+            <ScrollView Orientation="Vertical" >
+                <StackLayout Orientation="Vertical" Spacing="5" HorizontalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="id_xamarin:"></Label>
+                        <Label x:Name="id_xamarin_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="longitude:"></Label>
+                        <Label x:Name="longitude_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="latitude:"></Label>
+                        <Label x:Name="latitude_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="label:"></Label>
+                        <Label x:Name="label2_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="address:"></Label>
+                        <Label x:Name="address_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="url:"></Label>
+                        <Label x:Name="url_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="user_xamarin:"></Label>
+                        <Label x:Name="user_xamarin_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="religion:"></Label>
+                        <Label x:Name="religion_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="icon:"></Label>
+                        <Label x:Name="icon2_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="date_enregistrement:"></Label>
+                        <Label x:Name="date_enregistrement_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="5">
+                        <Label                      FontSize="Micro" Text="date_modification:"></Label>
+                        <Label x:Name="date_modification_IdXaml" FontSize="Micro"></Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+
+
+        </StackLayout>
+       
+    </ContentPage.Content>
+</ContentPage>

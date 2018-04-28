@@ -1,0 +1,15 @@
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\bin\Debug\netstandard2.0\Memories.deps.json
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\bin\Debug\netstandard2.0\Memories.dll
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\bin\Debug\netstandard2.0\Memories.pdb
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.csproj.CoreCompileInputs.cache
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.App.xaml.g.cs
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.DetailPin.xaml.g.cs
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.Views.AboutPage.xaml.g.cs
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.Views.CartePage.xaml.g.cs
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.Views.LoginPage.xaml.g.cs
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.Views.MainPage.xaml.g.cs
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.AssemblyInfoInputs.cache
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.AssemblyInfo.cs
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.dll
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.pdb
+C:\Users\forma516\Source\Repos\Memories\Memories\Memories\obj\Debug\netstandard2.0\Memories.csprojResolveAssemblyReference.cache
