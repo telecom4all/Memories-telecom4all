@@ -26,7 +26,7 @@ namespace Memories
             icon_IdXaml.Source = ImageSource.FromUri(new Uri(Configuration.ServerImages + "images/" + Pin.Icon));
             icon2_IdXaml.Text = Pin.Icon;
 
-            id_xamarin_IdXaml.Text = Pin.Id;
+            id_xamarin_IdXaml.Text = Pin.Id_xamarin;
             longitude_IdXaml.Text = Pin.Longitude;
             latitude_IdXaml.Text = Pin.Latitude;
 

@@ -3,5 +3,6 @@
   <PropertyGroup>
     <TargetiOSDevice />
     <SelectedDevice>Simulator</SelectedDevice>
+    <DefaultDevice>iPhone 8 iOS 11.3</DefaultDevice>
   </PropertyGroup>
 </Project>

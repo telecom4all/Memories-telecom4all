@@ -24,12 +24,13 @@ namespace Memories.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+            
             Xamarin.FormsMaps.Init();
 
             App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
             App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;
 
-
+          //  CustomMapRenderer.InitMapRenderer();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

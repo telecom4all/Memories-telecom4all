@@ -90,6 +90,7 @@ namespace Memories.Views
                 if (position != null)
                 {
                     _position = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
+                    Debug.WriteLine("_position != null Long:" + _position.Longitude.ToString() + " lat: " + _position.Latitude.ToString());
                     //got a cahched position, so let's use it.
                     return;
                 }
@@ -102,7 +103,7 @@ namespace Memories.Views
                 }
 
                 position = await locatore.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);
-
+                Debug.WriteLine("Position Long:" + position.Longitude.ToString() + " lat: " + position.Latitude.ToString());
             }
             catch (Exception ex)
             {
@@ -112,7 +113,7 @@ namespace Memories.Views
             _position = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
             if (position == null)
                 return;
-
+            
         }
 
         public async Task FindPinsAsync()
@@ -172,7 +173,7 @@ namespace Memories.Views
             
             Debug.WriteLine("Do Carte = " + jsonObj.ToString());
             GetPosition();
-
+            Debug.WriteLine("Position Long:" + _position.Longitude.ToString() + " lat: " + _position.Latitude.ToString());
             var map = new CustomMap
             {
                 IsShowingUser = true,
@@ -180,15 +181,16 @@ namespace Memories.Views
                 WidthRequest = 960,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
-            MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(_position.Latitude, _position.Latitude), Distance.FromMiles(0.3));
+          //  MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(_position.Latitude, _position.Latitude), Distance.FromMiles(0.3));
 
-            /*  map = new Map(
-             MapSpan.FromCenterAndRadius(
-                     new Xamarin.Forms.Maps.Position(_position.Latitude, _position.Latitude), Distance.FromMiles(0.3)))
-
-      */
+      
+      
             map.CustomPins = new List<CustomPin> {  };
 
+
+
+
+            
             foreach (var item in jsonObj.First)
             {
                 InfosPinsClass.InfosPinStruct lignePin = (InfosPinsClass.InfosPinStruct)Newtonsoft.Json.JsonConvert.DeserializeObject(item.ToString(), typeof(InfosPinsClass.InfosPinStruct));
@@ -256,6 +258,8 @@ namespace Memories.Views
                
 
             }
+
+            
             map.MoveToRegion(MapSpan.FromCenterAndRadius(_position, Distance.FromMiles(1)));
             map.MapType = MapType.Street;
             var stack = new StackLayout { Spacing = 0 };

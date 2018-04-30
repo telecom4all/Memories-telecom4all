@@ -16,7 +16,7 @@ namespace Memories
         public string IdMysql { get; set; }
         public string User_xamarin { get; set; }
 
-        public string Id { get; set; }
+        public string Id_xamarin{ get; set; }
 
         public string Url { get; set; }
         public string Longitude { get; set; }
