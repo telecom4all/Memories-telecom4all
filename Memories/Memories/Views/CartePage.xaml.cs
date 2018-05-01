@@ -63,7 +63,7 @@ namespace Memories.Views
                await DisplayAlert("Attention GPS Désativé", "GPS désactivé, merci d'ativé votre GPS sur l'appareil.", "OK");
                 Device.StartTimer(TimeSpan.FromSeconds(10), () =>
                 {
-                    Debug.WriteLine("timer");
+                   // Debug.WriteLine("timer");
                     if (IsLocationAvailable())
                     {
                         Tools.AsyncHelper.RunSync(() => FindPinsAsync());
@@ -90,7 +90,7 @@ namespace Memories.Views
                 if (position != null)
                 {
                     _position = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
-                    Debug.WriteLine("_position != null Long:" + _position.Longitude.ToString() + " lat: " + _position.Latitude.ToString());
+                   // Debug.WriteLine("_position != null Long:" + _position.Longitude.ToString() + " lat: " + _position.Latitude.ToString());
                     //got a cahched position, so let's use it.
                     return;
                 }
@@ -103,6 +103,11 @@ namespace Memories.Views
                 }
 
                 position = await locatore.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);
+
+                _position = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
+                if (position == null)
+                    return;
+
                 Debug.WriteLine("Position Long:" + position.Longitude.ToString() + " lat: " + position.Latitude.ToString());
             }
             catch (Exception ex)
@@ -110,9 +115,7 @@ namespace Memories.Views
                 throw ex;
                 //Display error as we have timed out or can't get location.
             }
-            _position = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
-            if (position == null)
-                return;
+            
             
         }
 
@@ -171,9 +174,9 @@ namespace Memories.Views
         public void DoCarte(Newtonsoft.Json.Linq.JToken jsonObj)
             {
             
-            Debug.WriteLine("Do Carte = " + jsonObj.ToString());
+           // Debug.WriteLine("Do Carte = " + jsonObj.ToString());
             GetPosition();
-            Debug.WriteLine("Position Long:" + _position.Longitude.ToString() + " lat: " + _position.Latitude.ToString());
+          //  Debug.WriteLine("Position Long:" + _position.Longitude.ToString() + " lat: " + _position.Latitude.ToString());
             var map = new CustomMap
             {
                 IsShowingUser = true,
@@ -181,7 +184,7 @@ namespace Memories.Views
                 WidthRequest = 960,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
-          //  MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(_position.Latitude, _position.Latitude), Distance.FromMiles(0.3));
+            MapSpan.FromCenterAndRadius(new Xamarin.Forms.Maps.Position(_position.Latitude, _position.Latitude), Distance.FromMiles(0.3));
 
       
       
@@ -201,6 +204,7 @@ namespace Memories.Views
                     for (i = 0; i < InfosPinList.Count; i++)
                     {
                          Debug.WriteLine("nb item = " + i);
+                        Debug.WriteLine("ID MYSQL = " + lignePin.id.ToString());
                     }
                 } 
                 
@@ -217,31 +221,26 @@ namespace Memories.Views
                     user_xamarin = lignePin.user_xamarin,
                     religion = lignePin.religion,
                     icon = lignePin.icon,
+                    id_mysql = lignePin.id,
                     date_enregistrement = lignePin.date_enregistrement,
                     date_modification = lignePin.date_modification
 
 
                 });
 
-                //IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR");
-
-               
-             //   double longitudePin = Convert.ToDouble("3.3931646", CultureInfo.GetCultureInfo("en-us"));
-              //  double latitudePin = Convert.ToDouble("50.456302", CultureInfo.GetCultureInfo("en-us"));
-
-             // Debug.WriteLine("lat = " + latitudePin);
-           //     Debug.WriteLine("long = " + longitudePin);
+         
 
                 var pin = new CustomPin
                 {
                     Type = PinType.Place,
-                   Position = new Xamarin.Forms.Maps.Position(Convert.ToDouble(lignePin.latitude, CultureInfo.GetCultureInfo("en-us")), Convert.ToDouble(lignePin.longitude, CultureInfo.GetCultureInfo("en-us"))),
-                    Label = lignePin.label,
+                    Position = new Xamarin.Forms.Maps.Position(Convert.ToDouble(lignePin.latitude, CultureInfo.GetCultureInfo("en-us")), Convert.ToDouble(lignePin.longitude, CultureInfo.GetCultureInfo("en-us"))),
+                    Label =  lignePin.label,
                     Address = lignePin.address,
-                    Id = lignePin.id_xamarin,
+                    Id = lignePin.id,
+                    Id_xamarin = lignePin.id_xamarin,
                     Url = lignePin.url,
                     Icon = lignePin.icon,
-                    IdMysql = lignePin.id,
+                    Id_mysql = lignePin.id,
                     User_xamarin = lignePin.user_xamarin,
                    Religion = lignePin.religion,
                     Date_enregistrement = lignePin.date_enregistrement,
@@ -254,6 +253,29 @@ namespace Memories.Views
                // map.Pins.Add(pin);
 
                map.CustomPins.Add(pin);
+
+                
+
+
+                Debug.WriteLine("Address = " + pin.Address.ToString());
+                Debug.WriteLine("Date_enregistrement = " + pin.Date_enregistrement.ToString());
+                Debug.WriteLine("Date_modification = " + pin.Date_modification.ToString());
+                Debug.WriteLine("Icon = " + pin.Icon.ToString());
+
+              
+
+                 Debug.WriteLine("IdMysql = " + pin.Id_mysql.ToString());
+                Debug.WriteLine("Id_xamarin = " + pin.Id_xamarin.ToString());
+                Debug.WriteLine("Label = " + pin.Label.ToString());
+                Debug.WriteLine("Latitude = " + pin.Latitude.ToString());
+                Debug.WriteLine("Longitude = " + pin.Longitude.ToString());
+                Debug.WriteLine("Position = " + pin.Position.ToString());
+                Debug.WriteLine("Religion = " + pin.Religion.ToString());
+                Debug.WriteLine("Type = " + pin.Type.ToString());
+                Debug.WriteLine("Url = " + pin.Url.ToString());
+                Debug.WriteLine("User_xamarin = " + pin.User_xamarin.ToString());
+                
+
                 map.Pins.Add(pin);
                
 

@@ -241,6 +241,7 @@ D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.A
 D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.Android\obj\Debug\android\assets\System.Xml.Linq.pdb
 D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.Android\obj\Debug\android\assets\System.Xml.pdb
 D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.Android\bin\Debug\Memories.Android.dll
+D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.Android\obj\Debug\linksrc\Memories.pdb
 D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.Android\obj\Debug\linksrc\Memories.Android.dll.mdb
 D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 D:\Users\bernf\OneDrive\gitHub\Memories\Memories-telecom4all\Memories\Memories.Android\obj\Debug\linksrc\Plugin.Geolocator.dll.mdb

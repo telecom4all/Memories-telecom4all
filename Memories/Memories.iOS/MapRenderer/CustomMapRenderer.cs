@@ -28,7 +28,7 @@ namespace Memories.iOS
             {
                 var nativeMap = Control as MKMapView;
                 nativeMap.GetViewForAnnotation = null;
-                nativeMap.CalloutAccessoryControlTapped -= OnCalloutAccessoryControlTapped;
+               // nativeMap.CalloutAccessoryControlTapped -= OnCalloutAccessoryControlTapped;
                 nativeMap.DidSelectAnnotationView -= OnDidSelectAnnotationView;
                 nativeMap.DidDeselectAnnotationView -= OnDidDeselectAnnotationView;
             }
@@ -40,7 +40,7 @@ namespace Memories.iOS
                 customPins = formsMap.CustomPins;
 
                 nativeMap.GetViewForAnnotation = GetViewForAnnotation;
-                nativeMap.CalloutAccessoryControlTapped += OnCalloutAccessoryControlTapped;
+               // nativeMap.CalloutAccessoryControlTapped += OnCalloutAccessoryControlTapped;
                 nativeMap.DidSelectAnnotationView += OnDidSelectAnnotationView;
                 nativeMap.DidDeselectAnnotationView += OnDidDeselectAnnotationView;
             }
@@ -56,13 +56,13 @@ namespace Memories.iOS
             {
 
 
-                Debug.WriteLine("ATTENTION!!! Anotation : " + annotation.ToString() + " mapView = " + mapView.ToString());
+//                Debug.WriteLine("ATTENTION!!! Anotation : " + annotation.ToString() + " mapView = " + mapView.ToString());
 
 
                 MKAnnotationView annotationView = null;
 
                 if (annotation is MKUserLocation) {
-                    Debug.WriteLine("annotation is MKUserLocation");
+  //                  Debug.WriteLine("annotation is MKUserLocation");
                 return null;
             }
 
@@ -73,7 +73,10 @@ namespace Memories.iOS
                     throw new Exception("Custom pin not found");
             }
 
-            annotationView = mapView.DequeueReusableAnnotation(customPin.Id.ToString());
+                Debug.WriteLine("--------------------------");
+                Debug.WriteLine("customPin.Id.ToString():" + customPin.Id.ToString());
+                Debug.WriteLine("--------------------------");
+                annotationView = mapView.DequeueReusableAnnotation(customPin.Id.ToString());
             if (annotationView == null)
             {
                     Debug.WriteLine("ATTENTION!!! customPin.Religion =  " + customPin.Religion + " customPin.Label = " + customPin.Label);
@@ -81,7 +84,7 @@ namespace Memories.iOS
                     annotationView = new CustomMKAnnotationView(annotation, customPin.Id.ToString());
                 if (customPin.Religion == "Catholique")
                 {
-                    annotationView.Image = UIImage.FromFile("monkey.png");
+                    annotationView.Image = UIImage.FromFile("pin.png");
                 }
                 else {
                     annotationView.Image = UIImage.FromFile("pin.png");
@@ -91,7 +94,7 @@ namespace Memories.iOS
 
                 if (customPin.Religion == "Catholique")
                 {
-                    annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.FromFile("monkey.png"));
+                    annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.FromFile("pin.png"));
 
                 }
                 else {
@@ -102,11 +105,10 @@ namespace Memories.iOS
                     Debug.WriteLine(" customPin.Url; = " + customPin.Url.ToString());
 
                     annotationView.RightCalloutAccessoryView = UIButton.FromType(UIButtonType.DetailDisclosure);
-                ((CustomMKAnnotationView)annotationView).Id = customPin.IdMysql.ToString();
-                ((CustomMKAnnotationView)annotationView).Url = customPin.Url; 
+                ((CustomMKAnnotationView)annotationView).Id = customPin.Id_mysql.ToString();
+             //   ((CustomMKAnnotationView)annotationView).Url = customPin.Url; 
             }
             annotationView.CanShowCallout = true;
-                Debug.WriteLine(" annotationView.CanShowCallout; = " + annotationView.ToString());
                 return annotationView;
 
             }
@@ -125,7 +127,7 @@ namespace Memories.iOS
             var customView = e.View as CustomMKAnnotationView;
             if (!string.IsNullOrWhiteSpace(customView.Url))
             {
-                UIApplication.SharedApplication.OpenUrl(new Foundation.NSUrl(customView.Url));
+               UIApplication.SharedApplication.OpenUrl(new Foundation.NSUrl(customView.Url));
             }
         }
 
@@ -167,7 +169,7 @@ namespace Memories.iOS
 
         CustomPin GetCustomPin(MKPointAnnotation annotation)
         {
-            Debug.WriteLine("GetCustomPin " + annotation.Coordinate.ToString());
+           // Debug.WriteLine("GetCustomPin " + annotation.Coordinate.ToString());
 
             Debug.WriteLine("customPins " + customPins.ToString());
             var position = new Position(annotation.Coordinate.Latitude, annotation.Coordinate.Longitude);

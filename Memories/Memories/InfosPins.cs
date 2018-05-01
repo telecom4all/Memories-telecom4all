@@ -22,6 +22,7 @@ namespace Memories
             public string date_enregistrement { get; set; }
             public string date_modification { get; set; }
             public string icon { get; set; }
+            public string id_mysql { get; set; }
         }
         public static InfosPinStruct ListInfosPinJson;
     }

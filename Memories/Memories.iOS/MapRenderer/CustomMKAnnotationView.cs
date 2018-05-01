@@ -6,6 +6,7 @@ using System.Text;
 using Foundation;
 using UIKit;
 using MapKit;
+using System.Diagnostics;
 
 namespace Memories.iOS
 {
@@ -14,10 +15,12 @@ namespace Memories.iOS
         public string Id { get; set; }
 
         public string Url { get; set; }
-
+       
         public CustomMKAnnotationView(IMKAnnotation annotation, string id)
+            
             : base(annotation, id)
         {
+            Debug.WriteLine("annotation = " + annotation.GetTitle() + "id = " + id.ToString());
         }
     }
 }
